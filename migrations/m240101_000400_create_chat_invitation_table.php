@@ -2,26 +2,25 @@
 
 use yii\db\Migration;
 
-class m240101_000300_create_chat_message_table extends Migration
+class m240101_000400_create_chat_invitation_table extends Migration
 {
     public function safeUp()
     {
-        // Таблица сообщений
-        $this->createTable('{{%chat_message}}', [
+        // Таблица приглашений
+        $this->createTable('{{%chat_invitation}}', [
             'id' => $this->primaryKey(),
             'chat_id' => $this->integer()->notNull(),
-            'user_id' => $this->integer()->notNull(),
-            'message' => $this->text()->notNull(),
+            'code' => $this->string(32)->notNull(),
+            'created_by' => $this->integer()->notNull(),
             'created_at' => $this->timestamp()->defaultValue( new \yii\db\Expression('CURRENT_TIMESTAMP') ),
-            'updated_at' => $this->timestamp()->null(),
-            'is_deleted' => $this->boolean()->defaultValue(false),
-            'deleted_by' => $this->integer()->null(),
-            'deleted_at' => $this->timestamp()->null(),
+            'expires_at' => $this->timestamp()->null(),
+            'max_uses' => $this->integer(),
+            'used_count' => $this->integer()->defaultValue(0),
         ]);
-        
+
         $this->addForeignKey(
-            'fk-chat_message-chat_id',
-            '{{%chat_message}}',
+            'fk-chat_invitation-chat_id',
+            '{{%chat_invitation}}',
             'chat_id',
             '{{%chat}}',
             'id',
@@ -32,6 +31,6 @@ class m240101_000300_create_chat_message_table extends Migration
     
     public function safeDown()
     {
-        $this->dropTable('{{%chat_message}}');
+        $this->dropTable('{{%chat_invitation}}');
     }
 }
