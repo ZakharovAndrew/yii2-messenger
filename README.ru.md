@@ -145,16 +145,16 @@ Add this to your main configuration's urlManager array
 - Yii2 2.0.40+
 - MySQL 5.7+ или PostgreSQL 9.5+
 
-## 👥 Contributing
+## 👥 Вклад в проект
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Вклады приветствуются! Пожалуйста, не стесняйтесь отправлять Pull Request.
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+1. Сделайте форк репозитория
+2. Создайте новую ветку для своей фичи (`git checkout -b feature/amazing-feature`)
+3. Закоммитьте изменения (`git commit -m 'Добавлена потрясающая фича'`)
+4. Запушьте ветку (`git push origin feature/amazing-feature`)
+5. Откройте Pull Request
 
 ## 📄 Лицензия
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Этот проект лицензирован под лицензией MIT – см. файл [LICENSE](LICENSE) для подробностей.
