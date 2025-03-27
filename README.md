@@ -1,6 +1,6 @@
-# 🚀 Yii2 messenger - Chat Module for Yii2 📨✨
-
 <div align="center">
+
+# 🚀 Yii2 messenger - Chat Module for Yii2 📨✨
 
 [![Latest Stable Version](https://poser.pugx.org/zakharov-andrew/yii2-messenger/v/stable)](https://packagist.org/packages/zakharov-andrew/yii2-messenger)
 [![Total Downloads](https://poser.pugx.org/zakharov-andrew/yii2-messenger/downloads)](https://packagist.org/packages/zakharov-andrew/yii2-messenger)
@@ -9,7 +9,16 @@
 
 </div>
 
+<p align="center">
 The **Yii2 messenger** provides a complete solution for messaging between users, including private conversations and group chats with advanced management capabilities.
+</p>
+
+<p align="center">
+  <a href="README.ru.md">🇷🇺 Русская версия</a>
+</p>
+
+---
+
 
 ## 🔥 Key Features
 
