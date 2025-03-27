@@ -10,7 +10,16 @@
 </div>
 
 <p align="center">
-The **Yii2 messenger** provides a complete solution for messaging between users, including private conversations and group chats with advanced management capabilities.
+The <strong>Yii2 messenger</strong> provides a complete solution for messaging between users, including private conversations and group chats with advanced management capabilities.
+</p>
+
+<p align="center">
+  <a href="#-features">Features</a> •
+  <a href="#-installation">Installation</a> •
+  <a href="#-usage">Usage</a> •
+  <a href="#-system-requirements">System Requirements</a> •
+  <a href="#-contributing">Contributing</a> •
+  <a href="#-license">License</a>
 </p>
 
 <p align="center">
@@ -20,7 +29,7 @@ The **Yii2 messenger** provides a complete solution for messaging between users,
 ---
 
 
-## 🔥 Key Features
+## 🔥 Features
 
 ### 💬 Messaging System
 - Real-time text messaging ⚡
