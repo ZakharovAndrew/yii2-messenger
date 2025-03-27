@@ -11,7 +11,7 @@ class m240101_000100_create_chat_user_table extends Migration
             'chat_id' => $this->integer()->notNull(),
             'user_id' => $this->integer()->notNull(),
             'role' => $this->smallInteger()->notNull()->defaultValue(1)->comment('1 - участник, 2 - администратор'),
-            'joined_at' => $this->integer()->notNull(),
+            'joined_at' => $this->timestamp()->defaultValue( new \yii\db\Expression('CURRENT_TIMESTAMP') ),
             'muted_until' => $this->integer(),
             'is_banned' => $this->boolean()->defaultValue(false),
         ]);
