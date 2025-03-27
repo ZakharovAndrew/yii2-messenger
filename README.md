@@ -1,5 +1,48 @@
-# 🚀 Yii2 messenger
-Yii2 messenger
+# 🚀 Yii2 messenger - Chat Module for Yii2 📨✨
+
+<div align="center">
+
+[![Latest Stable Version](https://poser.pugx.org/zakharov-andrew/yii2-messenger/v/stable)](https://packagist.org/packages/zakharov-andrew/yii2-messenger)
+[![Total Downloads](https://poser.pugx.org/zakharov-andrew/yii2-messenger/downloads)](https://packagist.org/packages/zakharov-andrew/yii2-messenger)
+[![License](https://poser.pugx.org/zakharov-andrew/yii2-messenger/license)](https://packagist.org/packages/zakharov-andrew/yii2-messenger)
+[![Yii2](https://img.shields.io/badge/Powered_by-Yii_Framework-green.svg?style=flat)](http://www.yiiframework.com/)
+
+</div>
+
+The **Yii2 messenger** provides a complete solution for messaging between users, including private conversations and group chats with advanced management capabilities.
+
+## 🔥 Key Features
+
+### 💬 Messaging System
+- Real-time text messaging ⚡
+- Message history view 📜
+- Delete your own messages 🗑️
+- Admin ability to delete any messages 🛡️
+
+### 👥 Group Chats
+- Create chats with name and description 🏷️
+- Upload chat avatar 🖼️
+- Different access types:
+  - 🔗 Public (via link)
+  - ✉️ Invite-only
+  - 🔒 Private (manual addition only)
+- View participant list 👀
+
+### 🛠 Chat Management (for admins)
+- Assign administrators 👑
+- Flexible permission system:
+  - Delete messages 🗑️
+  - Ban users ⛔
+  - Temporary mute users 🔕
+  - Add/remove participants ➕➖
+  - Edit chat info ✏️
+  - Manage other admins 🛡️
+- View statistics and activity 📊
+
+### 🤝 Private Messages
+- Automatic chat creation for first message 🤖
+- List of all conversations 📋
+- Search message history 🔍
 
 ## 🚀 Installation
 
@@ -80,6 +123,18 @@ Add this to your main configuration's urlManager array
             ],
         ],
 ```
+
+## 🎨 Frontend Integration
+
+The module provides:
+- Ready-to-use AJAX controllers for easy integration 📡
+- Responsive interface (mobile-friendly) 📱
+- Customizable styling options 🎨
+
+## 📌 System Requirements
+- PHP 7.4+
+- Yii2 2.0.40+
+- MySQL 5.7+ or PostgreSQL 9.5+
 
 ## 👥 Contributing
 
