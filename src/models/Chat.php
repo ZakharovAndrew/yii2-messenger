@@ -1,6 +1,7 @@
 <?php
 
 namespace ZakharovAndrew\messenger\models;
+
 use Yii;
 use yii\db\ActiveRecord;
 use yii\web\UploadedFile;
