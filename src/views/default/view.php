@@ -87,12 +87,13 @@ function loadMessages() {
         $('#chat-messages').empty();
         
         $.each(data, function(index, message) {
-            var messageClass = message.is_own ? 'own-message' : 'other-message';
+            let messageClass = message.is_own ? 'own-message' : 'other-message';
+            let dateStr = new Date(message.created_at * 1000).toLocaleString();
             var html = `
                 <div class="message-item ${messageClass}">
                     <div class="message-header">
                         <strong>${message.user.name}</strong>
-                        <small>${new Date(message.created_at * 1000).toLocaleString()}</small>
+                        <small>${dateStr}</small>
                     </div>
                     <div class="message-body">${message.text}</div>
                 </div>

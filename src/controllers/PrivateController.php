@@ -7,6 +7,7 @@ use yii\web\Controller;
 use yii\filters\AccessControl;
 use ZakharovAndrew\messenger\models\Chat;
 use ZakharovAndrew\messenger\models\User;
+use ZakharovAndrew\messenger\assets\ChatAsset;
 
 class PrivateController extends Controller
 {
@@ -47,6 +48,8 @@ class PrivateController extends Controller
                 ['private_user2_id' => Yii::$app->user->id]
             ])
             ->all();
+        
+        ChatAsset::register($this);
             
         return $this->render('list', [
             'privateChats' => $privateChats,

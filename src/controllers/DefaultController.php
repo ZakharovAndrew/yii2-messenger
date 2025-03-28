@@ -8,6 +8,7 @@ use yii\filters\AccessControl;
 use ZakharovAndrew\messenger\models\Chat;
 use ZakharovAndrew\messenger\models\ChatUser;
 use ZakharovAndrew\messenger\models\ChatService;
+use ZakharovAndrew\messenger\assets\ChatAsset;
 
 class DefaultController extends Controller
 {
@@ -33,6 +34,8 @@ class DefaultController extends Controller
             ->with('chat')
             ->orderBy(['joined_at' => SORT_DESC])
             ->all();
+        
+        ChatAsset::register($this);
 
         return $this->render('index', [
             'userChats' => $userChats,
@@ -57,6 +60,8 @@ class DefaultController extends Controller
                 return $this->redirect(['view', 'id' => $chat->id]);
             }
         }
+        
+        ChatAsset::register($this);
 
         return $this->render('create', [
             'model' => $model,
@@ -79,6 +84,8 @@ class DefaultController extends Controller
         if (!$chatUser || $chatUser->is_banned) {
             throw new \yii\web\ForbiddenHttpException('У вас нет доступа к этому чату');
         }
+        
+        ChatAsset::register($this);
 
         return $this->render('view', [
             'chat' => $chat,
