@@ -1,0 +1,88 @@
+/* Chat Module Styles */
+.chat-container {
+    display: flex;
+    height: calc(100vh - 150px);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Chat list sidebar */
+.chat-list {
+    width: 300px;
+    border-right: 1px solid #e0e0e0;
+    background: #f9f9f9;
+    overflow-y: auto;
+}
+
+/* Chat messages area */
+.chat-messages {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+}
+
+/* Message input area */
+.message-input-container {
+    padding: 15px;
+    border-top: 1px solid #e0e0e0;
+    background: #f5f5f5;
+}
+
+/* Individual message styling */
+.message {
+    max-width: 70%;
+    padding: 10px 15px;
+    margin: 8px;
+    border-radius: 18px;
+    line-height: 1.4;
+    position: relative;
+}
+
+.message-incoming {
+    background: #e5f5fd;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.message-outgoing {
+    background: #dcf8c6;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+/* Message timestamp */
+.message-time {
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 4px;
+    text-align: right;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .chat-container {
+        flex-direction: column;
+        height: calc(100vh - 100px);
+    }
+    
+    .chat-list {
+        width: 100%;
+        height: 200px;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+    }
+}
+
+/* Typing indicator */
+.typing-indicator {
+    display: inline-block;
+    padding: 10px;
+    background: #f0f0f0;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    color: #666;
+    margin-left: 10px;
+}
