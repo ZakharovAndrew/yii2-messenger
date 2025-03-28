@@ -24,6 +24,9 @@ class Chat extends ActiveRecord
     const ACCESS_TYPE_PUBLIC = 1; // Доступ по ссылке
     const ACCESS_TYPE_INVITE = 2; // Доступ по приглашению
     const ACCESS_TYPE_PRIVATE = 3; // Только ручное добавление
+    
+    const TYPE_GROUP = 0;
+    const TYPE_PRIVATE = 1;
 
     /**
      * @var UploadedFile
@@ -45,6 +48,10 @@ class Chat extends ActiveRecord
             [['avatar'], 'string', 'max' => 255],
             [['avatarFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg'],
             [['access_type'], 'in', 'range' => array_keys(self::getAccessTypes())],
+            // for private chats
+            [['is_private', 'private_user1_id', 'private_user2_id'], 'safe'],
+            ['is_private', 'boolean'],
+            [['private_user1_id', 'private_user2_id'], 'integer'],
         ];
     }
 
@@ -89,6 +96,54 @@ class Chat extends ActiveRecord
             }
         }
         return false;
+    }
+    
+    /**
+     * Создает или возвращает существующий личный чат между двумя пользователями
+     */
+    public static function findOrCreatePrivateChat($user1Id, $user2Id)
+    {
+        // Сортируем ID пользователей для избежания дублирования чатов
+        $sortedUserIds = [$user1Id, $user2Id];
+        sort($sortedUserIds);
+
+        $chat = self::find()
+            ->where([
+                'is_private' => true,
+                'private_user1_id' => $sortedUserIds[0],
+                'private_user2_id' => $sortedUserIds[1]
+            ])
+            ->one();
+
+        if (!$chat) {
+            $chat = new self();
+            $chat->is_private = true;
+            $chat->private_user1_id = $sortedUserIds[0];
+            $chat->private_user2_id = $sortedUserIds[1];
+            $chat->name = "Private chat";
+            $chat->access_type = self::ACCESS_TYPE_PRIVATE;
+
+            if ($chat->save()) {
+                // Добавляем обоих пользователей в чат
+                $chatService = new ChatService();
+                $chatService->addUserToChat($chat->id, $user1Id);
+                $chatService->addUserToChat($chat->id, $user2Id);
+            }
+        }
+
+        return $chat;
+    }
+
+    /**
+     * Получает собеседника в личном чате
+     */
+    public function getPrivateChatCompanion($currentUserId)
+    {
+        if (!$this->is_private) return null;
+
+        return $this->private_user1_id == $currentUserId 
+            ? $this->private_user2_id 
+            : $this->private_user1_id;
     }
 
     public function getChatUsers()

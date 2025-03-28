@@ -109,6 +109,11 @@ class ChatService
             return false;
         }
         
+        // Для личных чатов - только участники
+        if ($chat->is_private) {
+            return in_array($userId, [$chat->private_user1_id, $chat->private_user2_id]);
+        }
+        
         // Проверяем, не добавлен ли уже пользователь
         $existing = ChatUser::findOne(['chat_id' => $chatId, 'user_id' => $userId]);
         if ($existing) {
