@@ -5,6 +5,7 @@ namespace ZakharovAndrew\messenger\models;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\web\UploadedFile;
+use ZakharovAndrew\messenger\services\ChatService;
 
 /**
  * @property int $id
@@ -120,6 +121,7 @@ class Chat extends ActiveRecord
             $chat->is_private = true;
             $chat->private_user1_id = $sortedUserIds[0];
             $chat->private_user2_id = $sortedUserIds[1];
+            $chat->created_by = Yii::$app->user->id;
             $chat->name = "Private chat";
             $chat->access_type = self::ACCESS_TYPE_PRIVATE;
 

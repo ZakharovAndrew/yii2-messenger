@@ -70,7 +70,7 @@ class DefaultController extends Controller
         if (!$chat) {
             throw new \yii\web\NotFoundHttpException(Module::t('Chat not found'));
         }
-
+        
         // Проверяем доступ пользователя к чату
         $chatUser = ChatUser::findOne([
             'chat_id' => $id,
