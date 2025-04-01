@@ -1,10 +1,10 @@
 <?php
 /**
- * @link https://github.com/ZakharovAndrew/yii2-user
- * @copyright Copyright (c) 2024 Zakharov Andrey
+ * @link https://github.com/ZakharovAndrew/yii2-messenger
+ * @copyright Copyright (c) 2025 Zakharov Andrey
  */
 
-namespace ZakharovAndrew\news\assets;
+namespace ZakharovAndrew\messenger\assets;
 
 use yii\web\AssetBundle;
 
