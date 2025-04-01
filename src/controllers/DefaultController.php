@@ -7,8 +7,8 @@ use yii\web\Controller;
 use yii\filters\AccessControl;
 use ZakharovAndrew\messenger\models\Chat;
 use ZakharovAndrew\messenger\models\ChatUser;
-use ZakharovAndrew\messenger\models\ChatService;
-use ZakharovAndrew\messenger\assets\ChatAsset;
+use ZakharovAndrew\messenger\Module;
+use ZakharovAndrew\messenger\services\ChatService;
 
 class DefaultController extends Controller
 {
@@ -34,8 +34,6 @@ class DefaultController extends Controller
             ->with('chat')
             ->orderBy(['joined_at' => SORT_DESC])
             ->all();
-        
-        ChatAsset::register($this);
 
         return $this->render('index', [
             'userChats' => $userChats,
@@ -56,12 +54,10 @@ class DefaultController extends Controller
             );
 
             if ($chat) {
-                Yii::$app->session->setFlash('success', 'Чат успешно создан');
+                Yii::$app->session->setFlash('success', Module::t('Chat successfully created'));
                 return $this->redirect(['view', 'id' => $chat->id]);
             }
         }
-        
-        ChatAsset::register($this);
 
         return $this->render('create', [
             'model' => $model,
@@ -72,7 +68,7 @@ class DefaultController extends Controller
     {
         $chat = Chat::findOne($id);
         if (!$chat) {
-            throw new \yii\web\NotFoundHttpException('Чат не найден');
+            throw new \yii\web\NotFoundHttpException(Module::t('Chat not found'));
         }
 
         // Проверяем доступ пользователя к чату
@@ -84,8 +80,6 @@ class DefaultController extends Controller
         if (!$chatUser || $chatUser->is_banned) {
             throw new \yii\web\ForbiddenHttpException('У вас нет доступа к этому чату');
         }
-        
-        ChatAsset::register($this);
 
         return $this->render('view', [
             'chat' => $chat,
@@ -97,7 +91,7 @@ class DefaultController extends Controller
     {
         $model = Chat::findOne($id);
         if (!$model) {
-            throw new \yii\web\NotFoundHttpException('Чат не найден');
+            throw new \yii\web\NotFoundHttpException(Module::t('Chat not found'));
         }
 
         // Проверяем права на редактирование чата
@@ -137,7 +131,7 @@ class DefaultController extends Controller
     {
         $chat = Chat::findOne($id);
         if (!$chat) {
-            throw new \yii\web\NotFoundHttpException('Чат не найден');
+            throw new \yii\web\NotFoundHttpException(Module::t('Chat not found'));
         }
 
         $chatService = new ChatService();

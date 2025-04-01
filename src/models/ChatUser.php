@@ -86,11 +86,4 @@ class ChatUser extends ActiveRecord
         return false;
     }
 
-    public function beforeSave($insert)
-    {
-        if ($insert) {
-            $this->joined_at = time();
-        }
-        return parent::beforeSave($insert);
-    }
 }

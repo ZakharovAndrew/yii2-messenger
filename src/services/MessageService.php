@@ -36,7 +36,7 @@ class MessageService
     {
         return ChatMessage::find()
             ->where(['chat_id' => $chatId, 'is_deleted' => false])
-            ->orderBy(['created_at' => SORT_DESC])
+            ->orderBy(['created_at' => SORT_ASC])
             ->limit($limit)
             ->offset($offset)
             ->all();

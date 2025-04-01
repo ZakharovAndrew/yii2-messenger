@@ -16,6 +16,7 @@ class ChatService
         $chat->name = $name;
         $chat->description = $description;
         $chat->access_type = $accessType;
+        $chat->created_by = Yii::$app->user->id;
         
         if ($avatarFile) {
             $chat->avatarFile = UploadedFile::getInstance($avatarFile, 'avatarFile');
