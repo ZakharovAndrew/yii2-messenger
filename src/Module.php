@@ -33,6 +33,11 @@ class Module extends \yii\base\Module
      * @var string path to the images directory
      */
     public $uploadDir = '';
+
+    /**
+     * @var string version Bootstrap
+     */
+    public $bootstrapVersion = '';
     
     /**
      *
