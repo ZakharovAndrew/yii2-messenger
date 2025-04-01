@@ -34,6 +34,13 @@ class Module extends \yii\base\Module
      */
     public $uploadDir = '';
 
+    public $uploadWebDir = '';
+    
+    /**
+     * @var string path to the default chat image
+     */
+    public $defaultChatImage = '@web/chat-default-img.jpg';
+
     /**
      * @var string version Bootstrap
      */
