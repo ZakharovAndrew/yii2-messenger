@@ -1,6 +1,9 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\Url;
+use ZakharovAndrew\messenger\assets\ChatAsset;
+
+ChatAsset::register($this);
 
 $this->title = 'Мои чаты';
 $this->params['breadcrumbs'][] = $this->title;
