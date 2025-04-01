@@ -52,8 +52,6 @@ class ManageController extends Controller
             ->with('user')
             ->orderBy(['role' => SORT_DESC, 'joined_at' => SORT_ASC])
             ->all();
-        
-        ChatAsset::register($this);
 
         return $this->render('users', [
             'chat' => $chat,

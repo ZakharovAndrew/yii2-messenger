@@ -2,6 +2,11 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\GridView;
+use ZakharovAndrew\messenger\models\ChatUser;
+use ZakharovAndrew\messenger\models\ChatAdminPermission;
+use ZakharovAndrew\messenger\assets\ChatAsset;
+
+ChatAsset::register($this);
 
 $this->title = 'Управление участниками: ' . $chat->name;
 $this->params['breadcrumbs'][] = ['label' => 'Мои чаты', 'url' => ['default/index']];

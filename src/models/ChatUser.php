@@ -32,8 +32,9 @@ class ChatUser extends ActiveRecord
     {
         return [
             [['chat_id', 'user_id'], 'required'],
-            [['chat_id', 'user_id', 'role', 'joined_at', 'muted_until'], 'integer'],
+            [['chat_id', 'user_id', 'role', 'muted_until'], 'integer'],
             [['is_banned'], 'boolean'],
+            ['joined_at', 'safe'],
             [['role'], 'in', 'range' => array_keys(self::getRoles())],
         ];
     }
